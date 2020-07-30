@@ -54,6 +54,20 @@ class ShoppingNoteSetTests: XCTestCase {
         XCTAssertTrue(set1.isItemAvailable(ShoppingNote("Green bean", 33)))
     }
 
+    func testTwoSets() {
+        let set1 = ShoppingNoteSet<String>()
+        let set2 = ShoppingNoteSet<String>()
+
+        set1.add(ShoppingNote("Fish", 1))
+        set1.add(ShoppingNote("Pork", 11))
+        set1.add(ShoppingNote("Cabbage", 1))
+
+        set2.add(ShoppingNote("Cabbage", 22))
+        set2.add(ShoppingNote("Green bean", 33))
+
+        XCTAssertFalse(set1 == set2)
+    }
+
     func testMergeDuplicate() {
         let set1 = ShoppingNoteSet<String>()
         let set2 = ShoppingNoteSet<String>()
